@@ -17,6 +17,8 @@ celery -A flask_celery:celery_app worker
 ```
 python3 -m smtpd -c DebuggingServer -n localhost:1025
 ```
+Для поднятия сервера flask запускаем скрипт *app.py*.
 
 Скрипт *client.py* создаёт в базе одного пользователя, логинится под ним и создаёт объявление.
+
 Скрипт *client_celery.py* отправляет почту всем пользователям из базы.
