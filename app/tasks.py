@@ -11,7 +11,6 @@ SENDER_EMAIL = "my@mail.com"
 @shared_task
 def send_mails(message: str, emails: list):
     with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-        print(f'Почтовый сервер: {server}')
         time.sleep(1)
         for receiver_email in emails:
             message += f'\nSent at {time.asctime()}'
