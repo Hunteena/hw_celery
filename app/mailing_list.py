@@ -22,6 +22,7 @@ class MailingListView(MethodView):
             print(f'{er} is required')
             raise HTTPError(400, f'{er} is required')
         with Session() as session:
+            # TODO split users in chunks
             users = session.query(UserModel).all()
             emails = [user.email for user in users]
         task = send_mails.delay(email_body, emails)
